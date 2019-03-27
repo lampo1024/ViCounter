@@ -8,6 +8,7 @@ namespace ViCounter
     public class ViCounterMiddleware
     {
         private readonly RequestDelegate _requestDelegate;
+        //        private readonly ViCounter 
 
         public ViCounterMiddleware(RequestDelegate requestDelegate)
         {
@@ -17,7 +18,7 @@ namespace ViCounter
         public async Task Invoke(HttpContext context)
         {
             var visitorId = context.Request.Cookies["VisitorId"];
-            
+
             if (visitorId == null)
             {
                 visitorId = Guid.NewGuid().ToString();
@@ -25,12 +26,12 @@ namespace ViCounter
                 context.Response.Cookies.Append("VisitorId", visitorId, new CookieOptions()
                 {
                     Path = "/",
-                    HttpOnly = true,
-                    Secure = false,
+                    //HttpOnly = true,
+                    //Secure = false,
                     Expires = DateTime.Now.AddMonths(1)
                 });
             }
-            ViCounter.Visit(visitorId);
+            CounterMonitor.Visit(visitorId);
 
             await _requestDelegate(context);
         }

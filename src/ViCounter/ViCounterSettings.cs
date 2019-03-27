@@ -1,8 +1,11 @@
 ﻿namespace ViCounter
 {
-    public class ViCounterOptions
+    /// <summary>
+    /// ViCounter options class
+    /// </summary>
+    public sealed class ViCounterSettings
     {
-        public ViCounterOptions()
+        static ViCounterSettings()
         {
             RefreshInterval = 10;
             ActivityDuration = 300;
@@ -10,11 +13,15 @@
         /// <summary>
         /// Gets or sets the refresh interval, expressed in seconds, default:10 secs
         /// </summary>
-        public int RefreshInterval { get; set; }
+        public static int RefreshInterval { get; set; }
 
         /// <summary>
         /// Gets or sets the activity duration, expressed in seconds, default:300 secs
         /// </summary>
-        public int ActivityDuration { get; set; }
+        public static int ActivityDuration { get; set; }
+
+        public int Interval { get; set; }
+        public int Duration { get; set; }
+
     }
 }
