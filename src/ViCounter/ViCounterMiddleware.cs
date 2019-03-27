@@ -26,7 +26,7 @@ namespace ViCounter
                 context.Response.Cookies.Append("VisitorId", visitorId, new CookieOptions()
                 {
                     Path = "/",
-                    //HttpOnly = true,
+                    HttpOnly = true,
                     //Secure = false,
                     Expires = DateTime.Now.AddMonths(1)
                 });
