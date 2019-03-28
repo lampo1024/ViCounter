@@ -19,9 +19,5 @@
         /// Gets or sets the activity duration, expressed in seconds, default:300 secs
         /// </summary>
         public static int ActivityDuration { get; set; }
-
-        public int Interval { get; set; }
-        public int Duration { get; set; }
-
     }
 }
