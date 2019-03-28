@@ -31,7 +31,7 @@ namespace ViCounter
                     Expires = DateTime.Now.AddMonths(1)
                 });
             }
-            CounterMonitor.Visit(visitorId);
+            CounterProcessor.Visit(visitorId);
 
             await _requestDelegate(context);
         }

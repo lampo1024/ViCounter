@@ -8,12 +8,17 @@ namespace ViCounter
     /// <summary>
     /// 
     /// </summary>
-    public class CounterMonitor
+    public class CounterProcessor
     {
         private static readonly bool Initialized = false;
         private static readonly object Lock = new object();
         private static Timer _timer;
         private static int _counter = 0;
+
+        static CounterProcessor()
+        {
+            Init();
+        }
         public static void Init()
         {
             if (!Initialized)
@@ -27,9 +32,9 @@ namespace ViCounter
                         _timer.Start();
                         _timer.Elapsed += (sender, e) =>
                         {
-                            Console.WriteLine($"Start clear expired session, interval:{ViCounterSettings.RefreshInterval}, count:{_counter}...");
+                            //Console.WriteLine($"Start clear expired session, interval:{ViCounterSettings.RefreshInterval}, count:{_counter}...");
                             VisitorList.RemoveWhere(x => x.ExpiredAt < DateTime.Now);
-                            Console.WriteLine("Expired session clear completed.");
+                            //Console.WriteLine("Expired session clear completed.");
                         };
                     }
                 }

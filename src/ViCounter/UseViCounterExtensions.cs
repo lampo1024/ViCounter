@@ -11,19 +11,22 @@ namespace ViCounter
         public static IServiceCollection AddViCounter(this IServiceCollection service,
             ViCounterOptions options = default(ViCounterOptions))
         {
-            if (options == null) return service;
-            if (options.RefreshInterval < 3)
+            if (options != null)
             {
-                options.RefreshInterval = 3;
-            }
+                if (options.RefreshInterval < 3)
+                {
+                    options.RefreshInterval = 3;
+                }
 
-            if (options.ActivityDuration < 1)
-            {
-                options.ActivityDuration = 1;
+                if (options.ActivityDuration < 1)
+                {
+                    options.ActivityDuration = 1;
+                }
+
+                ViCounterSettings.RefreshInterval = options.RefreshInterval;
+                ViCounterSettings.ActivityDuration = options.ActivityDuration;
             }
-            ViCounterSettings.RefreshInterval = options.RefreshInterval;
-            ViCounterSettings.ActivityDuration = options.ActivityDuration;
-            CounterMonitor.Init();
+            CounterProcessor.Init();
             return service;
         }
         /// <summary>

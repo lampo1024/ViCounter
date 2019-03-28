@@ -8,12 +8,12 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <p>
-        Number of current online users: @(CounterMonitor.VisitorNumber)
+        Number of current online users: @(CounterProcessor.VisitorNumber)
     </p>
     <p>Refresh interval:@(ViCounterSettings.RefreshInterval)</p>
     <p>Activity duration:@(ViCounterSettings.ActivityDuration)</p>
     <ul>
-        @foreach (var v in CounterMonitor.VisitorList)
+        @foreach (var v in CounterProcessor.VisitorList)
         {
             <li>ID:@v.Id,Expired at:@v.ExpiredAt</li>
         }

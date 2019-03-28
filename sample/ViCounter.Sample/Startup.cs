@@ -27,6 +27,7 @@ namespace ViCounter.Sample
             });
 
             services.AddViCounter(new ViCounterOptions { RefreshInterval = 5, ActivityDuration = 10 });
+            //services.AddViCounter(new ViCounterOptions { RefreshInterval = 5, ActivityDuration = 10 });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
