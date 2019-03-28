@@ -1,6 +1,19 @@
 # ViCounter
 A middleware for counting the number of visitors written in .net core 2+.
 
+
+## Install
+
+```
+Install-Package ViCounter -Version 1.0.0
+```
+
+or
+
+```
+dotnet add package ViCounter --version 1.0.0
+```
+
 ## Usage
 
 Startup.cs
